@@ -2,4 +2,10 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-void hello_world();
+#ifdef _WIN32
+#define WINAPI __declspec(dllexport)
+#else
+#define WINAPI
+#endif
+
+WINAPI void hello_world();
