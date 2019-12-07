@@ -42,8 +42,8 @@ void main() async {
     group('hello_world-windows', () {
       test('make dll + execute', () async {
         // run 'nmake clean'
-        // await Process.run("cl.exe", []);
-        print('clean');
+        await Process.run("../../tool/compile_cl.bat", []);
+        // print('clean');
         var clean = await Process.run(
           'nmake.exe',
           ['-f', 'NmakeFile', 'clean'],
