@@ -2,7 +2,7 @@
 language: dart
 
 install:
-  - if [[ "$TRAVIS_OS_NAME" == "windows" ]]; then choco install visualstudio2017-workload-vctools -y --force; fi
+  - if [[ "$TRAVIS_OS_NAME" == "windows" ]]; then choco upgrade visualstudio2017-workload-vctools -y --force; fi
   - if [[ "$TRAVIS_OS_NAME" == "windows" ]]; then ./tool/compile_cl.bat; fi
 
 jobs:

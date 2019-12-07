@@ -11,8 +11,11 @@ void main() async {
     group('hello_world-linux', () {
       test('make dylib + execute', () async {
         // run 'make clean'
-        var clean = await Process.run('make', ['-f', 'LinuxMakefile', 'clean'],
-            workingDirectory: 'c');
+        var clean = await Process.run(
+          'make',
+          ['-f', 'LinuxMakefile', 'clean'],
+          workingDirectory: 'c',
+        );
         expect(clean.exitCode, 0);
 
         // run 'make so'
@@ -39,10 +42,14 @@ void main() async {
     group('hello_world-windows', () {
       test('make dll + execute', () async {
         // run 'make clean'
-        await Process.run("cl.exe", []);
-        var clean = await Process.run('nmake.exe', ['-f', 'NmakeFile', 'clean'],
-            workingDirectory: 'c');
-        expect(clean.exitCode, 0);
+        // await Process.run("cl.exe", []);
+        // var clean = await Process.run(
+        //   'nmake.exe',
+        //   ['-f', 'NmakeFile', 'clean'],
+        //   workingDirectory: 'c',
+        //   // environment:
+        // );
+        // expect(clean.exitCode, 0);
 
         // run 'make so'
         var dynamicLib = await Process.run(

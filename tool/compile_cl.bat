@@ -35,3 +35,8 @@ if NOT DEFINED VCINSTALLDIR (
 if NOT DEFINED VCINSTALLDIR (
     echo "No compatible visual studio found! run vcvarsall.bat first!"
 )
+
+if DEFINED VCINSTALLDIR (
+    cd ffi/hello_world/c/
+    nmake.exe -f Nmakefile dll
+)
