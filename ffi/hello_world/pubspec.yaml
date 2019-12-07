@@ -8,3 +8,4 @@ environment:
 dev_dependencies:
   test: ^1.5.3
   kernel: ^0.3.29
+  front_end: ^0.1.29
