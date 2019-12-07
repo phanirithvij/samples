@@ -37,6 +37,6 @@ if NOT DEFINED VCINSTALLDIR (
 )
 
 if DEFINED VCINSTALLDIR (
-    cd ffi/hello_world/c/
-    nmake.exe -f Nmakefile dll
+    cd c/
+    nmake.exe -f Nmakefile %*
 )

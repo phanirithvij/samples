@@ -42,25 +42,23 @@ void main() async {
     group('hello_world-windows', () {
       test('make dll + execute', () async {
         // run 'nmake clean'
-        await Process.run("../../tool/compile_cl.bat", []).then((result) {
-          stdout.write(result.stdout);
-          stdout.write(result.stderr);
+        await Process.run("..\\..\\tool\\compile_cl.bat", ["clean"])
+            .then((result) {
           expect(result.exitCode, 0);
         });
         // print('clean');
-        var clean = await Process.run(
-          'nmake.exe',
-          ['-f', 'NmakeFile', 'clean'],
-          workingDirectory: 'c',
-          // environment:
-        );
-        expect(clean.exitCode, 0);
+        // var clean = await Process.run(
+        //   'nmake.exe',
+        //   ['-f', 'NmakeFile', 'clean'],
+        //   workingDirectory: 'c',
+        //   // environment:
+        // );
+        // expect(clean.exitCode, 0);
 
         // run 'nmake dll'
         await Process.run(
-          'nmake.exe',
-          ['-f', 'NmakeFile', 'dll'],
-          workingDirectory: 'c',
+          '..\\..\\tool\\compile_cl.bat',
+          ['dll'],
         ).then((result) {
           stdout.write(result.stdout);
           stdout.write(result.stderr);
